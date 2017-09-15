@@ -3,11 +3,12 @@
   "rules": {
     "linebreak-style": "off",
     "comma-dangle": ["error", "never"],
-    "react/forbid-prop-types": "off",
-    "react/jsx-filename-extension": "off",
-    "react/jsx-wrap-multilines": "off",
-    "react/no-array-index-key": "off",
-    "import/prefer-default-export": "off"
+    "react/forbid-prop-types": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-wrap-multilines": 0,
+    "react/no-array-index-key": 0,
+    "import/prefer-default-export": 0,
+    "react/prefer-stateless-function": 0
   },
   "env": {
     "node": true,

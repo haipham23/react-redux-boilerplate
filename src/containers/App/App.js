@@ -5,6 +5,10 @@ import { bindActionCreators } from 'redux';
 
 import * as actions from '../../actions/productActions';
 
+import Header from '../../components/Header/Header';
+import SelectProductButtons from '../../components/SelectProductButtons/SelectProductButtons';
+import SelectedProducts from '../../components/SelectedProducts/SelectedProducts';
+
 import './App.css';
 
 class App extends Component {
@@ -41,39 +45,14 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="App-header">
-          <h2>Text Master Supermarket</h2>
-        </div>
-        <div className="App-desc">
-          Select Products to add to your basket
-        </div>
-        <div>
-          {
-            productList.map((p, i) =>
-              <button
-                className="App-btn-product"
-                value={p.id}
-                key={p.id + i}
-                onClick={this.onSelect}
-              >
-                {p.name}
-              </button>)
-          }
-        </div>
-        <div>
-          {
-            product.displayed.map((p, i) =>
-              <div
-                className="App-product"
-                key={p.id + i}
-              >
-                {p.name} : ${p.price}
-              </div>)
-          }
-        </div>
-        <div className="App-total">
-          ${product.total}
-        </div>
+        <Header />
+        <SelectProductButtons
+          productList={productList}
+          onSelect={this.onSelect}
+        />
+        <SelectedProducts
+          product={product}
+        />
       </div>
     );
   }

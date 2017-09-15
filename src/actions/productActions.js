@@ -1,7 +1,7 @@
 import { SELECT_PRODUCT } from '../constants/actionTypes';
 
-import selectProductAsync from '../utils/selectProductAsync';
-import calculateTotal from '../utils/calculateTotal';
+import selectProductAsync from '../services/selectProductAsync';
+import calculateTotal from '../services/calculateTotal';
 
 const selectProduct = (e, product, productList, discounts) => dispatch =>
   selectProductAsync(e, product, productList, discounts)
