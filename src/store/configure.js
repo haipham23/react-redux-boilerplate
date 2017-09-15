@@ -5,15 +5,20 @@ import {
   compose,
   applyMiddleware
 } from 'redux';
+import { routerMiddleware } from 'react-router-redux';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
+import createHistory from 'history/createBrowserHistory';
 
 import rootReducer from '../reducers';
 
+export const history = createHistory();
+
 function configureStoreProd(initialState) {
   const middlewares = [
-    thunk
+    thunk,
+    routerMiddleware(history)
   ];
 
   return createStore(rootReducer, initialState, compose(
@@ -27,7 +32,8 @@ function configureStoreDev(initialState) {
   const middlewares = [
     reduxImmutableStateInvariant(),
     thunk,
-    logger
+    logger,
+    routerMiddleware(history)
   ];
 
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

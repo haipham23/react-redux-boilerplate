@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'react-router-redux';
 
-import TextMaster from './containers/TextMaster/TextMaster';
 import registerServiceWorker from './registerServiceWorker';
-import configure from './store/configure';
+import configure, { history } from './store/configure';
+
+import Router from './components/Router/Router';
 
 import './css/index.css';
 
 ReactDOM.render(
   <Provider store={configure()}>
-    <TextMaster />
+    <ConnectedRouter history={history}>
+      <Router />
+    </ConnectedRouter>
   </Provider>, document.getElementById('root')
 );
 
