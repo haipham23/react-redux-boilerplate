@@ -1,0 +1,17 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "linebreak-style": "off",
+    "comma-dangle": ["error", "never"],
+    "react/forbid-prop-types": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-wrap-multilines": "off",
+    "react/no-array-index-key": "off",
+    "import/prefer-default-export": "off"
+  },
+  "env": {
+    "node": true,
+    "mocha": true,
+    "browser": true
+  }
+}

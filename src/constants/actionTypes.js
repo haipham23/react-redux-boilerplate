@@ -1,0 +1,5 @@
+const SELECT_PRODUCT = 'SELECT_PRODUCT';
+
+export {
+  SELECT_PRODUCT
+};
