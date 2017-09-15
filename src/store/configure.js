@@ -26,6 +26,7 @@ function configureStoreProd(initialState) {
   ));
 }
 
+// istanbul ignore next
 function configureStoreDev(initialState) {
   const logger = createLogger();
 
@@ -44,6 +45,7 @@ function configureStoreDev(initialState) {
   return store;
 }
 
+// istanbul ignore next
 const configureStore =
   ['production', 'test'].indexOf(process.env.NODE_ENV) !== -1
     ? configureStoreProd

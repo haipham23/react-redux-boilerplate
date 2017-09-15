@@ -10,32 +10,7 @@ describe('configure Store', () => {
     total: '1.12'
   };
 
-  it('should load dev config', () => {
-    process.env.NODE_ENV = 'development';
-
-    const store = configure();
-
-    const preState = store.getState();
-
-    expect(preState).to.include.all.keys(
-      'product',
-      'discounts',
-      'productList'
-    );
-
-    store.dispatch({
-      type: SELECT_PRODUCT,
-      product
-    });
-
-    const nextState = store.getState();
-
-    expect(nextState.product).to.deep.equal(product);
-  });
-
-  it('should load prod config', () => {
-    process.env.NODE_ENV = 'production';
-
+  it('should load prod/test config', () => {
     const store = configure();
 
     const preState = store.getState();

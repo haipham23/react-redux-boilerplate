@@ -48,5 +48,14 @@
   "pre-commit": [
     "lint",
     "cover"
-  ]
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/**/*.test.js",
+      "!src/index.js",
+      "!src/registerServiceWorker.js",
+      "!src/components/Router/Router.js"
+    ]
+  }
 }
