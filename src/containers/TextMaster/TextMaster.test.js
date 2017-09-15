@@ -3,33 +3,33 @@ import { mount } from 'enzyme';
 import { expect } from 'chai';
 import { Provider } from 'react-redux';
 
-import App from './App';
+import TextMaster from './TextMaster';
 import configure from '../../store/configure';
 
-describe('App', () => {
+describe('TextMaster', () => {
   const wrapper = mount(
     <Provider store={configure()}>
-      <App />
+      <TextMaster />
     </Provider>
   );
 
   it('should render', () => {
-    expect(wrapper.find('.App').length).to.equal(1);
-    expect(wrapper.find('.App-header').length).to.equal(1);
-    expect(wrapper.find('.App-desc').length).to.equal(1);
-    expect(wrapper.find('.App-total').length).to.equal(1);
-
-    expect(wrapper.find('.App-btn-product').length).to.greaterThan(0);
-
-    expect(wrapper.find('.App-product').length).to.equal(0);
+    expect(wrapper.find('.tm').length).to.equal(1);
+    expect(wrapper.find('Header').length).to.equal(1);
+    expect(wrapper.find('SelectProductButtons').length).to.equal(1);
+    expect(wrapper.find('SelectedProducts').length).to.equal(1);
   });
 
   it('should handle select product', (done) => {
     // simulate click on 1st button
-    wrapper.find('.App-btn-product').at(0).simulate('click');
+    wrapper
+      .find('SelectProductButtons')
+      .find('.tm-spb__btn')
+      .at(0)
+      .simulate('click');
 
     setImmediate(() => {
-      expect(wrapper.find('.App-product').length).to.equal(1);
+      expect(wrapper.find('.tm-sp__item').length).to.equal(1);
 
       done();
     });
@@ -37,10 +37,14 @@ describe('App', () => {
 
   it('should handle select 2 products', (done) => {
     // simulate click on 1st button
-    wrapper.find('.App-btn-product').at(1).simulate('click');
+    wrapper
+      .find('SelectProductButtons')
+      .find('.tm-spb__btn')
+      .at(1)
+      .simulate('click');
 
     setImmediate(() => {
-      expect(wrapper.find('.App-product').length).to.equal(2);
+      expect(wrapper.find('.tm-sp__item').length).to.equal(2);
 
       done();
     });
@@ -48,10 +52,14 @@ describe('App', () => {
 
   it('should handle select 3 products', (done) => {
     // simulate click on 1st button
-    wrapper.find('.App-btn-product').at(2).simulate('click');
+    wrapper
+      .find('SelectProductButtons')
+      .find('.tm-spb__btn')
+      .at(2)
+      .simulate('click');
 
     setImmediate(() => {
-      expect(wrapper.find('.App-product').length).to.equal(3);
+      expect(wrapper.find('.tm-sp__item').length).to.equal(3);
 
       done();
     });
@@ -59,11 +67,15 @@ describe('App', () => {
 
   it('should handle discount', (done) => {
     // simulate click on 1st button
-    wrapper.find('.App-btn-product').at(0).simulate('click');
+    wrapper
+      .find('SelectProductButtons')
+      .find('.tm-spb__btn')
+      .at(0)
+      .simulate('click');
 
     setImmediate(() => {
-      expect(wrapper.find('.App-product').length).to.equal(4);
-      expect(wrapper.find('.App-product').at(3).text()).to.include('Buy 1 get 1 free');
+      expect(wrapper.find('.tm-sp__item').length).to.equal(4);
+      expect(wrapper.find('.tm-sp__item').at(3).text()).to.include('Buy 1 get 1 free');
 
       done();
     });

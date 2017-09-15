@@ -4,6 +4,11 @@
 - Node 7
 - Docker 17
 
+### Test
+```
+npm t
+```
+
 ### Build
 
 ```
