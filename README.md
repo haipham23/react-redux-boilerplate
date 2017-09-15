@@ -1,5 +1,11 @@
 # Text Master
 ---
+### Tech stack
+- React
+- Redux
+- React-router
+- Redux-thunk
+
 ### Prerequisite
 - Node v7
 - npm v3
