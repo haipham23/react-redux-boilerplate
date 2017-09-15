@@ -24,8 +24,18 @@ class SelectProductButtons extends PureComponent {
   }
 }
 
+const {
+  arrayOf,
+  shape,
+  string
+} = Proptypes;
+
 SelectProductButtons.propTypes = {
-  productList: Proptypes.array.isRequired,
+  productList: arrayOf(shape({
+    id: string.isRequired,
+    name: string.isRequired,
+    price: string.isRequired
+  })).isRequired,
   onSelect: Proptypes.func.isRequired
 };
 

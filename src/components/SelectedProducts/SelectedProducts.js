@@ -24,8 +24,18 @@ class SelectedProducts extends PureComponent {
   }
 }
 
+const {
+  shape,
+  array,
+  string
+} = Proptypes;
+
 SelectedProducts.propTypes = {
-  product: Proptypes.object.isRequired
+  product: shape({
+    selected: array,
+    displayed: array,
+    total: string
+  }).isRequired
 };
 
 export default SelectedProducts;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import Proptypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -56,11 +56,35 @@ class TextMaster extends Component {
   }
 }
 
+const {
+  arrayOf,
+  shape,
+  array,
+  string,
+  object,
+  number,
+  bool,
+  func
+} = Proptypes;
+
 TextMaster.propTypes = {
-  productList: PropTypes.array.isRequired,
-  discounts: PropTypes.array.isRequired,
-  product: PropTypes.object.isRequired,
-  reduxActions: PropTypes.object.isRequired
+  productList: arrayOf(shape({
+    id: string.isRequired,
+    name: string.isRequired,
+    price: string.isRequired
+  })).isRequired,
+  discounts: arrayOf(shape({
+    name: string.isRequired,
+    priority: number.isRequired,
+    isActive: bool.isRequired,
+    calc: func.isRequired
+  })).isRequired,
+  product: shape({
+    selected: array,
+    displayed: array,
+    total: string
+  }).isRequired,
+  reduxActions: object.isRequired
 };
 
 function mapStateToProps(state) {
