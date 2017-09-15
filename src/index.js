@@ -2,14 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import './index.css';
-import App from './containers/App/App';
+import TextMaster from './containers/TextMaster/TextMaster';
 import registerServiceWorker from './registerServiceWorker';
 import configure from './store/configure';
 
+import './css/index.css';
+
 ReactDOM.render(
   <Provider store={configure()}>
-    <App />
+    <TextMaster />
   </Provider>, document.getElementById('root')
 );
 

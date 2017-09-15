@@ -1,0 +1,14 @@
+@import '../_variables.scss';
+
+.tm-sp {
+  &__item {
+    font-size: $font-size-md;
+    margin: 10px 0;
+  }
+
+  &__total {
+    font-size: $font-size-lg;
+    font-weight: $font-bold;
+    margin-top: 20px;
+  }
+}

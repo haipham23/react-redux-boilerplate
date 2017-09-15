@@ -1,0 +1,10 @@
+@import '../_colors.scss';
+@import '../_variables.scss';
+
+.tm-header {
+  text-align: center;
+  background-color: $color-dark-gray;
+  color: $color-white;
+  padding: 10px;
+  font-size: $font-size-sm;
+}

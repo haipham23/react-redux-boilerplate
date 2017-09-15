@@ -9,9 +9,7 @@ import Header from '../../components/Header/Header';
 import SelectProductButtons from '../../components/SelectProductButtons/SelectProductButtons';
 import SelectedProducts from '../../components/SelectedProducts/SelectedProducts';
 
-import './App.css';
-
-class App extends Component {
+class TextMaster extends Component {
   constructor(props) {
     super(props);
 
@@ -44,7 +42,7 @@ class App extends Component {
     } = this.props;
 
     return (
-      <div className="App">
+      <div className="tm">
         <Header />
         <SelectProductButtons
           productList={productList}
@@ -58,7 +56,7 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
+TextMaster.propTypes = {
   productList: PropTypes.array.isRequired,
   discounts: PropTypes.array.isRequired,
   product: PropTypes.object.isRequired,
@@ -82,4 +80,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(App);
+)(TextMaster);
