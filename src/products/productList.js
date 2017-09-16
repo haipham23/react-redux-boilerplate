@@ -1,15 +1,15 @@
 const productList = [{
-  id: 'AP1',
-  name: 'Apple',
-  price: '5.00'
+  id: 'OR1',
+  name: 'Orange',
+  price: '3.00'
 }, {
   id: 'CF1',
   name: 'Coffee',
-  price: '11.23'
+  price: '10.50'
 }, {
-  id: 'FR1',
-  name: 'Fruit Tea',
-  price: '3.11'
+  id: 'IT1',
+  name: 'Ice Tea',
+  price: '8.75'
 }];
 
 export default productList;

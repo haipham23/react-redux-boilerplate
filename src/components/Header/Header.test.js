@@ -12,6 +12,6 @@ describe('Header', () => {
   it('should render', () => {
     expect(wrapper.find('.tm-header').length).to.equal(1);
     expect(wrapper.find('h2').length).to.equal(1);
-    expect(wrapper.find('h2').text()).to.equal('Text Master Supermarket');
+    expect(wrapper.find('h2').text()).to.equal('My Supermarket');
   });
 });
