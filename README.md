@@ -1,4 +1,7 @@
-# Text Master
+# React Redux Boilerplate
+
+[![Build Status](https://travis-ci.org/haipham23/react-redux-boilerplate.svg?branch=v1.0.0)](https://travis-ci.org/haipham23/react-redux-boilerplate)
+
 ---
 ### Tech stack
 - React

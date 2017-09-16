@@ -8,3 +8,6 @@ install:
 script:
   - npm run lint
   - npm run cover
+branches:
+  only:
+  - master
