@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import Supermarket from './Supermarket';
 import configure from '../../store/configure';
 
-describe('TextMaster', () => {
+describe('Supermarket', () => {
   const wrapper = mount(
     <Provider store={configure()}>
       <Supermarket />

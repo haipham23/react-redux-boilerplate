@@ -24,13 +24,13 @@ npm run cover
 ### Build
 
 ```
-docker build -t text_master .
+docker build -t react_redux_boilerplate .
 ```
 
 ### Start
 
 ```
-docker run -d -p 3000:8080 text_master
+docker run -d -p 3000:8080 react_redux_boilerplate
 ```
 
 Go [here](https://localhost:3000/) to check

@@ -9,7 +9,7 @@ import Header from '../../components/Header/Header';
 import SelectProductButtons from '../../components/SelectProductButtons/SelectProductButtons';
 import SelectedProducts from '../../components/SelectedProducts/SelectedProducts';
 
-class TextMaster extends Component {
+class Supermarket extends Component {
   constructor(props) {
     super(props);
 
@@ -66,7 +66,7 @@ const {
   func
 } = Proptypes;
 
-TextMaster.propTypes = {
+Supermarket.propTypes = {
   productList: arrayOf(shape({
     id: string.isRequired,
     name: string.isRequired,
@@ -105,4 +105,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(TextMaster);
+)(Supermarket);
