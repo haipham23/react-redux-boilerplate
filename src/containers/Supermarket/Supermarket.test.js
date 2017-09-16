@@ -3,13 +3,13 @@ import { mount } from 'enzyme';
 import { expect } from 'chai';
 import { Provider } from 'react-redux';
 
-import TextMaster from './TextMaster';
+import Supermarket from './Supermarket';
 import configure from '../../store/configure';
 
 describe('TextMaster', () => {
   const wrapper = mount(
     <Provider store={configure()}>
-      <TextMaster />
+      <Supermarket />
     </Provider>
   );
 

@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import TextMaster from '../../containers/TextMaster/TextMaster';
+import Supermarket from '../../containers/Supermarket/Supermarket';
 import NotFound from '../NotFound/NotFound';
 
 class Router extends PureComponent {
   render() {
     return (
       <Switch>
-        <Route exact path="/" component={TextMaster} />
+        <Route exact path="/" component={Supermarket} />
         <Route component={NotFound} />
       </Switch>
     );

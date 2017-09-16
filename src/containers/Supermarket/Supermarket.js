@@ -61,7 +61,6 @@ const {
   shape,
   array,
   string,
-  object,
   number,
   bool,
   func
@@ -84,7 +83,9 @@ TextMaster.propTypes = {
     displayed: array,
     total: string
   }).isRequired,
-  reduxActions: object.isRequired
+  reduxActions: shape({
+    selectProduct: func.isRequired
+  }).isRequired
 };
 
 function mapStateToProps(state) {
