@@ -1,0 +1,29 @@
+@import '../_colors.scss';
+@import '../_variables.scss';
+
+.tm-about {
+  background: $color-gray;
+  text-align: center;
+  padding: 40px;
+  margin-bottom: 60px;
+
+  &__title {
+    margin: 20px;
+    font-size: $font-size-md;
+    font-weight: $font-bold;
+  }
+
+  &__tag {
+    span {
+      padding: 10px;
+      margin: 20px 10px;
+      border: 3px solid $color-teal;
+      display: inline-block;
+    }
+  }
+
+  &__github {
+    margin: 20px;
+    font-size: $font-size-sm;
+  }
+}
