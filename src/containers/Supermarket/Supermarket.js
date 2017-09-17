@@ -5,9 +5,9 @@ import { bindActionCreators } from 'redux';
 
 import * as actions from '../../actions/productActions';
 
-import Header from '../../components/Header/Header';
 import SelectProductButtons from '../../components/SelectProductButtons/SelectProductButtons';
 import SelectedProducts from '../../components/SelectedProducts/SelectedProducts';
+import About from '../../components/About/About';
 
 class Supermarket extends Component {
   constructor(props) {
@@ -43,7 +43,7 @@ class Supermarket extends Component {
 
     return (
       <div className="tm">
-        <Header />
+        <About />
         <SelectProductButtons
           productList={productList}
           onSelect={this.onSelect}

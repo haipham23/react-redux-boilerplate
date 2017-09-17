@@ -15,7 +15,7 @@ describe('Supermarket', () => {
 
   it('should render', () => {
     expect(wrapper.find('.tm').length).to.equal(1);
-    expect(wrapper.find('Header').length).to.equal(1);
+    expect(wrapper.find('About').length).to.equal(1);
     expect(wrapper.find('SelectProductButtons').length).to.equal(1);
     expect(wrapper.find('SelectedProducts').length).to.equal(1);
   });
