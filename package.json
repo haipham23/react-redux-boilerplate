@@ -41,7 +41,7 @@
     "watch-css": "npm run build-css && node-sass-chokidar src/scss/ -o src/css/ --watch --recursive",
     "lint": "eslint ./src/**/*.js",
     "test": "cross-env NODE_ENV=test react-scripts test --env=jsdom",
-    "cover": "npm test -- --coverage | coveralls",
+    "cover": "npm test -- --coverage && cat ./coverage/lcov.info | coveralls",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
