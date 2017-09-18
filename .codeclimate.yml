@@ -1,0 +1,15 @@
+exclude_paths:
+- "**/*.test.js"
+- "css/"
+- "public/"
+engines:
+ scss-lint:
+    enabled: true
+ratings:
+  paths:
+  - "**.scss"
+  - "**.js"
+eslint:
+  enabled: true
+  config:
+    config: .eslintrc
