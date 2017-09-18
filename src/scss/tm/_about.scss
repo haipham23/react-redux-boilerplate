@@ -1,5 +1,5 @@
-@import '../_colors';
-@import '../_variables';
+@import '../colors';
+@import '../variables';
 
 .tm-about {
   background: $color-gray;
@@ -23,7 +23,7 @@
   }
 
   &__github {
-    margin: 20px;
     font-size: $font-size-sm;
+    margin: 20px;
   }
 }
