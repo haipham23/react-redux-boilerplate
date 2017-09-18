@@ -2,7 +2,8 @@
 
 [![Build Status](https://travis-ci.org/haipham23/react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/haipham23/react-redux-boilerplate)
 
----
+[![Coverage Status](https://coveralls.io/repos/github/haipham23/react-redux-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/haipham23/react-redux-boilerplate?branch=master)
+
 ### Tech stack
 - React
 - Redux
