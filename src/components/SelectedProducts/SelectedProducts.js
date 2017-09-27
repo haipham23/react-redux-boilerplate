@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import Proptypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class SelectedProducts extends PureComponent {
   render() {
@@ -18,6 +19,14 @@ class SelectedProducts extends PureComponent {
         }
         <div className="tm-sp__total">
           ${product.total}
+        </div>
+        <div className="tm-sp__about">
+          <Link
+            className="tm-sp__about-btn"
+            to="/about"
+          >
+            About this project
+          </Link>
         </div>
       </div>
     );

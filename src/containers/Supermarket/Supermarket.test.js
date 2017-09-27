@@ -2,20 +2,22 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { expect } from 'chai';
 import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'react-router-redux';
 
 import Supermarket from './Supermarket';
-import configure from '../../store/configure';
+import configure, { history } from '../../store/configure';
 
 describe('Supermarket', () => {
   const wrapper = mount(
     <Provider store={configure()}>
-      <Supermarket />
+      <ConnectedRouter history={history}>
+        <Supermarket />
+      </ConnectedRouter>
     </Provider>
   );
 
   it('should render', () => {
     expect(wrapper.find('.tm').length).to.equal(1);
-    expect(wrapper.find('About').length).to.equal(1);
     expect(wrapper.find('SelectProductButtons').length).to.equal(1);
     expect(wrapper.find('SelectedProducts').length).to.equal(1);
   });
@@ -76,6 +78,21 @@ describe('Supermarket', () => {
     setImmediate(() => {
       expect(wrapper.find('.tm-sp__item').length).to.equal(4);
       expect(wrapper.find('.tm-sp__item').at(3).text()).to.include('Buy 1 get 1 free');
+
+      done();
+    });
+  });
+
+  it('should redirect to about page', (done) => {
+    expect(history.location.pathname).to.equal('/');
+
+    wrapper
+      .find('.tm-sp__about-btn')
+      .props()
+      .onClick(new MouseEvent('click'));
+
+    setImmediate(() => {
+      expect(history.location.pathname).to.equal('/about');
 
       done();
     });

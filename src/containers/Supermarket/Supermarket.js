@@ -7,7 +7,6 @@ import * as actions from '../../actions/productActions';
 
 import SelectProductButtons from '../../components/SelectProductButtons/SelectProductButtons';
 import SelectedProducts from '../../components/SelectedProducts/SelectedProducts';
-import About from '../../components/About/About';
 
 class Supermarket extends Component {
   constructor(props) {
@@ -43,7 +42,6 @@ class Supermarket extends Component {
 
     return (
       <div className="tm">
-        <About />
         <SelectProductButtons
           productList={productList}
           onSelect={this.onSelect}

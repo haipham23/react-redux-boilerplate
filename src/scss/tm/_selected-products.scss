@@ -11,4 +11,16 @@
     font-weight: $font-bold;
     margin-top: 20px;
   }
+  &__about {
+    margin-top: 50px;
+
+    &-btn {
+      border: 1px solid;
+      font-size: 1.2em;
+      font-weight: 600;
+      padding: 10px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
 }

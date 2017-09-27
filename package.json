@@ -39,7 +39,7 @@
     "build-css": "node-sass-chokidar src/scss/ -o src/css/",
     "watch-css": "npm run build-css && node-sass-chokidar src/scss/ -o src/css/ --watch --recursive",
     "lint": "eslint ./src/**/*.js",
-    "test": "cross-env NODE_ENV=test react-scripts test --env=jsdom",
+    "test": "cross-env NODE_ENV=test CI=true react-scripts test --env=jsdom",
     "cover": "npm test -- --coverage",
     "eject": "react-scripts eject"
   },
@@ -58,7 +58,7 @@
   },
   "pre-commit": [
     "lint",
-    "cover"
+    "test"
   ],
   "jest": {
     "collectCoverageFrom": [
