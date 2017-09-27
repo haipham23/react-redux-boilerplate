@@ -1,18 +1,18 @@
-@import '../_colors.scss';
-@import '../_variables.scss';
+@import '../colors';
+@import '../variables';
 
 .tm-spb {
   margin-bottom: 20px;
 
   &__btn {
     background-color: $color-teal;
+    border: 0;
+    border-radius: $border-radius;
     color: $color-white;
-    border: none;
+    cursor: pointer;
+    font-size: $font-size-lg;
     margin: 0 5px;
     padding: 5px 10px;
-    font-size: $font-size-lg;
-    border-radius: $border-radius;
-    cursor: pointer;
   }
 
   &__title {
