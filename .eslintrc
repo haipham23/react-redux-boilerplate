@@ -1,5 +1,5 @@
 {
-  "extends": "airbnb",
+  "extends": ["react-app", "airbnb", "plugin:jsx-a11y/recommended"],
   "rules": {
     "linebreak-style": "off",
     "comma-dangle": ["error", "never"],
@@ -13,5 +13,6 @@
     "node": true,
     "mocha": true,
     "browser": true
-  }
+  },
+  "plugins": ["jsx-a11y"]
 }
