@@ -15,7 +15,7 @@ describe('NotFound', () => {
 
   it('should render', () => {
     expect(wrapper.find('.nf').length).to.equal(1);
-    expect(wrapper.find('h2').length).to.equal(1);
-    expect(wrapper.find('h2').text()).to.equal('Page Not Found');
+    expect(wrapper.find('h1').length).to.equal(1);
+    expect(wrapper.find('h1').text()).to.equal('Page Not Found');
   });
 });

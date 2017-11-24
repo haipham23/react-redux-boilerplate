@@ -6,18 +6,19 @@ class SelectProductButtons extends PureComponent {
     const { productList, onSelect } = this.props;
 
     return (
-      <div className="tm-spb">
-        <p className="tm-spb__title">Select Products to add to your basket</p>
+      <div className="sm-spb">
+        <h1 className="sm-spb__title">Add Products to your basket</h1>
         {
           productList.map((p, i) =>
             <button
-              className="tm-spb__btn"
+              className="btn btn-primary btn-lg sm-spb__btn--mr"
               value={p.id}
               key={p.id + i}
               onClick={onSelect}
             >
               {p.name}
-            </button>)
+            </button>
+          )
         }
       </div>
     );

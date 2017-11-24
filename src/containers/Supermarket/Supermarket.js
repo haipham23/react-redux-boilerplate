@@ -41,7 +41,7 @@ class Supermarket extends Component {
     } = this.props;
 
     return (
-      <div className="tm">
+      <div className="container tm">
         <SelectProductButtons
           productList={productList}
           onSelect={this.onSelect}

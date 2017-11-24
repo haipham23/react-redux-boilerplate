@@ -24,20 +24,23 @@ describe('Supermarket', () => {
     expect(wrapper.find('.tm').length).to.equal(1);
     expect(wrapper.find('SelectProductButtons').length).to.equal(1);
     expect(wrapper.find('SelectedProducts').length).to.equal(1);
+
+    expect(wrapper.find('ul').length).to.equal(1);
+    expect(wrapper.find('li').length).to.equal(1);
   });
 
   it('should handle select product', (done) => {
     // simulate click on 1st button
     wrapper
       .find('SelectProductButtons')
-      .find('.tm-spb__btn')
+      .find('button')
       .at(0)
       .simulate('click');
 
     setImmediate(() => {
       wrapper.update();
 
-      expect(wrapper.find('.tm-sp__item').length).to.equal(1);
+      expect(wrapper.find('li').length).to.equal(2);
 
       done();
     });
@@ -47,14 +50,14 @@ describe('Supermarket', () => {
     // simulate click on 1st button
     wrapper
       .find('SelectProductButtons')
-      .find('.tm-spb__btn')
+      .find('button')
       .at(1)
       .simulate('click');
 
     setImmediate(() => {
       wrapper.update();
 
-      expect(wrapper.find('.tm-sp__item').length).to.equal(2);
+      expect(wrapper.find('li').length).to.equal(3);
 
       done();
     });
@@ -64,14 +67,14 @@ describe('Supermarket', () => {
     // simulate click on 1st button
     wrapper
       .find('SelectProductButtons')
-      .find('.tm-spb__btn')
+      .find('button')
       .at(2)
       .simulate('click');
 
     setImmediate(() => {
       wrapper.update();
 
-      expect(wrapper.find('.tm-sp__item').length).to.equal(3);
+      expect(wrapper.find('li').length).to.equal(4);
 
       done();
     });
@@ -81,15 +84,15 @@ describe('Supermarket', () => {
     // simulate click on 1st button
     wrapper
       .find('SelectProductButtons')
-      .find('.tm-spb__btn')
+      .find('button')
       .at(0)
       .simulate('click');
 
     setImmediate(() => {
       wrapper.update();
 
-      expect(wrapper.find('.tm-sp__item').length).to.equal(4);
-      expect(wrapper.find('.tm-sp__item').at(3).text()).to.include('Buy 1 get 1 free');
+      expect(wrapper.find('li').length).to.equal(5);
+      expect(wrapper.find('li').at(3).text()).to.include('Buy 1 get 1 free');
 
       done();
     });

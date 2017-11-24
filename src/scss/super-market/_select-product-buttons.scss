@@ -1,0 +1,9 @@
+.sm-spb {
+  text-align: center;
+
+  &__btn--mr {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.sm-sp {
+  text-align: center;
+
+  &__btn-home {
+    margin-top: 20px;
+  }
+
+  &__list {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: left;
+  }
+}

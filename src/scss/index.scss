@@ -1,4 +1,11 @@
-@import './tm/index.scss';
-@import './nf/index.scss';
+@import './colors';
+@import './variables';
 
-@import './_override.scss';
+@import './home';
+@import './not-found';
+
+@import './super-market/super-market';
+@import './super-market/selected-products';
+@import './super-market/select-product-buttons';
+
+@import './override';

@@ -7,25 +7,34 @@ class SelectedProducts extends PureComponent {
     const { product } = this.props;
 
     return (
-      <div className="tm-sp">
-        {
-          product.displayed.map((p, i) =>
-            <div
-              className="tm-sp__item"
-              key={p.id + i}
-            >
-              {p.name} : ${p.price}
-            </div>)
-        }
-        <div className="tm-sp__total">
-          ${product.total}
-        </div>
-        <div className="tm-sp__about">
+      <div className="sm-sp">
+        <ul className="list-group sm-sp__list">
+          {
+            product.displayed.map((p, i) =>
+              <li
+                className="list-group-item d-flex justify-content-between align-items-center"
+                key={p.id + i}
+              >
+                {p.name}
+                <span className="badge badge-primary badge-pill">
+                  ${p.price}
+                </span>
+              </li>
+            )
+          }
+          <li className="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+            Total:
+            <span className="badge badge-primary badge-pill">
+              ${product.total}
+            </span>
+          </li>
+        </ul>
+        <div className="sm-sp__btn-home">
           <Link
-            className="tm-sp__about-btn"
-            to="/about"
+            className="btn btn-outline-primary"
+            to="/"
           >
-            About this project
+            Home
           </Link>
         </div>
       </div>

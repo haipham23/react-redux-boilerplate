@@ -1,0 +1,19 @@
+.home {
+  &__btn-gh {
+    margin-left: 5px;
+  }
+
+  &__btn-mr {
+    margin-right: 10px;
+  }
+
+  &__btn-disabled {
+    pointer-events: none;
+  }
+
+  &__badge {
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+  }
+}
