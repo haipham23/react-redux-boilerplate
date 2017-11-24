@@ -3,9 +3,13 @@ import { mount } from 'enzyme';
 import { expect } from 'chai';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import Supermarket from './Supermarket';
 import configure, { history } from '../../store/configure';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Supermarket', () => {
   const wrapper = mount(
@@ -31,6 +35,8 @@ describe('Supermarket', () => {
       .simulate('click');
 
     setImmediate(() => {
+      wrapper.update();
+
       expect(wrapper.find('.tm-sp__item').length).to.equal(1);
 
       done();
@@ -46,6 +52,8 @@ describe('Supermarket', () => {
       .simulate('click');
 
     setImmediate(() => {
+      wrapper.update();
+
       expect(wrapper.find('.tm-sp__item').length).to.equal(2);
 
       done();
@@ -61,6 +69,8 @@ describe('Supermarket', () => {
       .simulate('click');
 
     setImmediate(() => {
+      wrapper.update();
+
       expect(wrapper.find('.tm-sp__item').length).to.equal(3);
 
       done();
@@ -76,23 +86,10 @@ describe('Supermarket', () => {
       .simulate('click');
 
     setImmediate(() => {
+      wrapper.update();
+
       expect(wrapper.find('.tm-sp__item').length).to.equal(4);
       expect(wrapper.find('.tm-sp__item').at(3).text()).to.include('Buy 1 get 1 free');
-
-      done();
-    });
-  });
-
-  it('should redirect to about page', (done) => {
-    expect(history.location.pathname).to.equal('/');
-
-    wrapper
-      .find('.tm-sp__about-btn')
-      .props()
-      .onClick(new MouseEvent('click'));
-
-    setImmediate(() => {
-      expect(history.location.pathname).to.equal('/about');
 
       done();
     });
