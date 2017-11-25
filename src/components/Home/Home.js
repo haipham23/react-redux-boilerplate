@@ -50,8 +50,8 @@ class Home extends PureComponent {
               Calculation
             </Link>
             <Link
-              className="btn btn-secondary home__btn-disabled"
-              to="/"
+              className="btn btn-primary"
+              to="/login"
               disabled
             >
               Authentication

@@ -1,14 +1,16 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-import productReducer from './productReducer';
-import discountsReducer from './discountsReducer';
-import productListReducer from './productListReducer';
+import auth from './authReducer';
+import product from './productReducer';
+import discounts from './discountsReducer';
+import productList from './productListReducer';
 
 const rootReducer = combineReducers({
-  product: productReducer,
-  discounts: discountsReducer,
-  productList: productListReducer,
+  auth,
+  product,
+  discounts,
+  productList,
   routing: routerReducer
 });
 
