@@ -19,13 +19,13 @@ class Home extends Component {
     const { t } = this.context;
     const { lang, rSetLanguage } = this.props;
 
-    const enBtnClass = classNames('btn btn-primary', { active: lang === 'en' });
-    const viBtnClass = classNames('btn btn-primary', { active: lang === 'vi' });
+    const enBtnClass = classNames('btn', { 'btn-primary': lang === 'en', 'btn-outline-primary': lang !== 'en' });
+    const viBtnClass = classNames('btn', { 'btn-primary': lang === 'vi', 'btn-outline-primary': lang !== 'vi' });
 
     return (
       <div className="container home">
         <div className="jumbotron">
-          <h1 className="display-3">
+          <h1 className="display-4">
             {t('header')}
           </h1>
           <p className="lead">

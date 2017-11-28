@@ -1,7 +1,7 @@
 import Proptypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
-import { selectProduct } from '../../actions/productActions';
+import { selectProduct, resetProduct } from '../../actions/productActions';
 
 const {
   arrayOf,
@@ -40,7 +40,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  rSelectProduct: bindActionCreators(selectProduct, dispatch)
+  rSelectProduct: bindActionCreators(selectProduct, dispatch),
+  rResetProduct: bindActionCreators(resetProduct, dispatch)
 });
 
 export {

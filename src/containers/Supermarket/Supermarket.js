@@ -11,6 +11,7 @@ class Supermarket extends Component {
     super(props);
 
     this.onSelect = this.onSelect.bind(this);
+    this.onReset = this.onReset.bind(this);
   }
 
   onSelect(e) {
@@ -32,6 +33,10 @@ class Supermarket extends Component {
     );
   }
 
+  onReset() {
+    this.props.rResetProduct();
+  }
+
   render() {
     const {
       productList,
@@ -46,6 +51,7 @@ class Supermarket extends Component {
         />
         <SelectedProducts
           product={product}
+          onReset={this.onReset}
         />
       </div>
     );

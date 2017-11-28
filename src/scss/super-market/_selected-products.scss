@@ -5,8 +5,12 @@
     margin-top: 20px;
   }
 
+  &__btn-mr {
+    margin-right: 10px;
+  }
+
   &__list {
-    width: 400px;
+    max-width: 400px;
     margin-left: auto;
     margin-right: auto;
 

@@ -1,4 +1,7 @@
-import { SELECT_PRODUCT } from '../constants/actionTypes';
+import {
+  SELECT_PRODUCT,
+  RESET_PRODUCT
+} from '../constants/actionTypes';
 
 import selectProductAsync from '../services/selectProductAsync';
 import calculateTotal from '../services/calculateTotal';
@@ -14,6 +17,11 @@ const selectProduct = (e, product, productList, discounts) => dispatch =>
       }
     }));
 
+const resetProduct = () =>
+  dispatch =>
+    dispatch({ type: RESET_PRODUCT });
+
 export {
-  selectProduct
+  selectProduct,
+  resetProduct
 };
