@@ -33,10 +33,8 @@ Router.propTypes = {
   isAuth: Proptypes.bool.isRequired
 };
 
-function mapStateToProps(state) {
-  return {
-    isAuth: state.auth.isAuth
-  };
-}
+const mapStateToProps = state => ({
+  isAuth: state.auth.isAuth
+});
 
 export default withRouter(connect(mapStateToProps)(Router));

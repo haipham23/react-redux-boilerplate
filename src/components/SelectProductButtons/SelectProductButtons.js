@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
-import Proptypes from 'prop-types';
+
+import * as P from './SelectProductButtonsProps';
 
 class SelectProductButtons extends PureComponent {
   render() {
@@ -25,19 +26,6 @@ class SelectProductButtons extends PureComponent {
   }
 }
 
-const {
-  arrayOf,
-  shape,
-  string
-} = Proptypes;
-
-SelectProductButtons.propTypes = {
-  productList: arrayOf(shape({
-    id: string.isRequired,
-    name: string.isRequired,
-    price: string.isRequired
-  })).isRequired,
-  onSelect: Proptypes.func.isRequired
-};
+SelectProductButtons.propTypes = P.propTypes;
 
 export default SelectProductButtons;

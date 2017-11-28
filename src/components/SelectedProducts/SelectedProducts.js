@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
-import Proptypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
+import * as P from './SelectedProductsProps';
 
 class SelectedProducts extends PureComponent {
   render() {
@@ -42,18 +43,6 @@ class SelectedProducts extends PureComponent {
   }
 }
 
-const {
-  shape,
-  array,
-  string
-} = Proptypes;
-
-SelectedProducts.propTypes = {
-  product: shape({
-    selected: array,
-    displayed: array,
-    total: string
-  }).isRequired
-};
+SelectedProducts.propTypes = P.propTypes;
 
 export default SelectedProducts;

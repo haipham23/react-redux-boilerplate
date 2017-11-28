@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import Proptypes from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-
-import { selectProduct } from '../../actions/productActions';
 
 import SelectProductButtons from '../../components/SelectProductButtons/SelectProductButtons';
 import SelectedProducts from '../../components/SelectedProducts/SelectedProducts';
+
+import * as P from './SupermarketProps';
+import withConnect from '../../hoc/withConnect';
 
 class Supermarket extends Component {
   constructor(props) {
@@ -54,47 +52,6 @@ class Supermarket extends Component {
   }
 }
 
-const {
-  arrayOf,
-  shape,
-  array,
-  string,
-  number,
-  bool,
-  func
-} = Proptypes;
+Supermarket.propTypes = P.propTypes;
 
-Supermarket.propTypes = {
-  productList: arrayOf(shape({
-    id: string.isRequired,
-    name: string.isRequired,
-    price: string.isRequired
-  })).isRequired,
-  discounts: arrayOf(shape({
-    name: string.isRequired,
-    priority: number.isRequired,
-    isActive: bool.isRequired,
-    calc: func.isRequired
-  })).isRequired,
-  product: shape({
-    selected: array,
-    displayed: array,
-    total: string
-  }).isRequired,
-  rSelectProduct: func.isRequired
-};
-
-const mapStateToProps = state => ({
-  productList: state.productList,
-  discounts: state.discounts,
-  product: state.product
-});
-
-const mapDispatchToProps = dispatch => ({
-  rSelectProduct: bindActionCreators(selectProduct, dispatch)
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Supermarket);
+export default withConnect(Supermarket, P);

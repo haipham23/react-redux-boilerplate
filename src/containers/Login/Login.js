@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import Proptypes from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { Redirect } from 'react-router-dom';
 
-import { login } from '../../actions/authActions';
+import * as P from './LoginProps';
+import withConnect from '../../hoc/withConnect';
 
 class Login extends Component {
   render() {
@@ -58,31 +56,6 @@ class Login extends Component {
   }
 }
 
-const {
-  string,
-  bool,
-  shape,
-  func
-} = Proptypes;
+Login.propTypes = P.propTypes;
 
-Login.propTypes = {
-  auth: shape({
-    isLoading: bool.isRequired,
-    isAuth: bool.isRequired,
-    token: string
-  }).isRequired,
-  rLogin: func.isRequired
-};
-
-const mapStateToProps = state => ({
-  auth: state.auth
-});
-
-const mapDispatchToProps = dispatch => ({
-  rLogin: bindActionCreators(login, dispatch)
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Login);
+export default withConnect(Login, P);

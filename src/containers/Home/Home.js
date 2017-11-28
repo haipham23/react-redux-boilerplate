@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { setLanguage } from 'redux-i18n';
 import classNames from 'classnames';
+
+import * as P from './HomeProps';
+import withConnect from '../../hoc/withConnect';
 
 const tags = [
   'React',
@@ -96,24 +95,7 @@ class Home extends Component {
   }
 }
 
-Home.propTypes = {
-  lang: PropTypes.string.isRequired,
-  rSetLanguage: PropTypes.func.isRequired
-};
+Home.propTypes = P.propTypes;
+Home.contextTypes = P.contextTypes;
 
-Home.contextTypes = {
-  t: PropTypes.func
-};
-
-const mapStateToProps = state => ({
-  lang: state.i18nState.lang
-});
-
-const mapDispatchToProps = dispatch => ({
-  rSetLanguage: bindActionCreators(setLanguage, dispatch)
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Home);
+export default withConnect(Home, P);
