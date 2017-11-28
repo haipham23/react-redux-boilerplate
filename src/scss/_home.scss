@@ -1,14 +1,24 @@
 .home {
-  &__btn-gh {
-    margin-left: 5px;
+  &__btn {
+    &-gh {
+      margin-left: 5px;
+    }
+
+    &-mr {
+      margin-right: 10px;
+    }
+
+    &-lang {
+      margin-bottom: 10px;
+    }
+
+    &-disabled {
+      pointer-events: none;
+    }
   }
 
-  &__btn-mr {
-    margin-right: 10px;
-  }
-
-  &__btn-disabled {
-    pointer-events: none;
+  &__other-examples {
+    margin-top: 20px;
   }
 
   &__badge {

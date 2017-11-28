@@ -80,7 +80,7 @@ Login.propTypes = {
     isLoading: bool.isRequired,
     isAuth: bool.isRequired,
     token: string
-  }),
+  }).isRequired,
   reduxActions: shape({
     login: func.isRequired
   }).isRequired

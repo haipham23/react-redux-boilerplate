@@ -1,23 +1,12 @@
 import React from 'react';
-import Enzyme, { mount } from 'enzyme';
 import { expect } from 'chai';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
-import Adapter from 'enzyme-adapter-react-16';
 
 import Supermarket from './Supermarket';
-import configure, { history } from '../../store/configure';
 
-Enzyme.configure({ adapter: new Adapter() });
+import { mountContainer } from '../../test/mount';
 
 describe('Supermarket', () => {
-  const wrapper = mount(
-    <Provider store={configure()}>
-      <ConnectedRouter history={history}>
-        <Supermarket />
-      </ConnectedRouter>
-    </Provider>
-  );
+  const wrapper = mountContainer(<Supermarket />);
 
   it('should render', () => {
     expect(wrapper.find('.tm').length).to.equal(1);

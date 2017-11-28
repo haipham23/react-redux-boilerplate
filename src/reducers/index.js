@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
+import { i18nState } from 'redux-i18n';
 
 import auth from './authReducer';
 import product from './productReducer';
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
   product,
   discounts,
   productList,
-  routing: routerReducer
+  routing: routerReducer,
+  i18nState
 });
 
 export default rootReducer;

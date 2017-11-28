@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
-import Home from '../Home/Home';
 import NotFound from '../NotFound/NotFound';
 
 import Dashboard from '../Dashboard/Dashboard';
 
+import Home from '../../containers/Home/Home';
 import Supermarket from '../../containers/Supermarket/Supermarket';
 import Login from '../../containers/Login/Login';
 
