@@ -3,7 +3,7 @@ import Proptypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as actions from '../../actions/productActions';
+import { selectProduct } from '../../actions/productActions';
 
 import SelectProductButtons from '../../components/SelectProductButtons/SelectProductButtons';
 import SelectedProducts from '../../components/SelectedProducts/SelectedProducts';
@@ -22,11 +22,11 @@ class Supermarket extends Component {
       product,
       productList,
       discounts,
-      reduxActions
+      rSelectProduct
     } = this.props;
 
     // apply discount
-    reduxActions.selectProduct(
+    rSelectProduct(
       e,
       product,
       productList,
@@ -81,24 +81,18 @@ Supermarket.propTypes = {
     displayed: array,
     total: string
   }).isRequired,
-  reduxActions: shape({
-    selectProduct: func.isRequired
-  }).isRequired
+  rSelectProduct: func.isRequired
 };
 
-function mapStateToProps(state) {
-  return {
-    productList: state.productList,
-    discounts: state.discounts,
-    product: state.product
-  };
-}
+const mapStateToProps = state => ({
+  productList: state.productList,
+  discounts: state.discounts,
+  product: state.product
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    reduxActions: bindActionCreators(actions, dispatch)
-  };
-}
+const mapDispatchToProps = dispatch => ({
+  rSelectProduct: bindActionCreators(selectProduct, dispatch)
+});
 
 export default connect(
   mapStateToProps,

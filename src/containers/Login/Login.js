@@ -4,19 +4,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Redirect } from 'react-router-dom';
 
-import * as actions from '../../actions/authActions';
+import { login } from '../../actions/authActions';
 
 class Login extends Component {
-  constructor(props) {
-    super(props);
-
-    this.login = this.login.bind(this);
-  }
-
-  login() {
-    this.props.reduxActions.login('username', 'password');
-  }
-
   render() {
     const {
       isLoading,
@@ -56,7 +46,7 @@ class Login extends Component {
             <button
               type="submit"
               className="btn btn-primary btn-block"
-              onClick={this.login}
+              onClick={this.props.rLogin}
               disabled={isLoading}
             >
               Submit
@@ -81,22 +71,16 @@ Login.propTypes = {
     isAuth: bool.isRequired,
     token: string
   }).isRequired,
-  reduxActions: shape({
-    login: func.isRequired
-  }).isRequired
+  rLogin: func.isRequired
 };
 
-function mapStateToProps(state) {
-  return {
-    auth: state.auth
-  };
-}
+const mapStateToProps = state => ({
+  auth: state.auth
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    reduxActions: bindActionCreators(actions, dispatch)
-  };
-}
+const mapDispatchToProps = dispatch => ({
+  rLogin: bindActionCreators(login, dispatch)
+});
 
 export default connect(
   mapStateToProps,
