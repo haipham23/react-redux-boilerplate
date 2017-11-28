@@ -19,10 +19,10 @@ class Router extends PureComponent {
 
     return (
       <Switch>
-        <Route exact path='/' component={Home} />
-        <Route path='/super-market' component={Supermarket} />
-        <Route path='/login' component={Login} />
-        <PrivateRoute path='/dashboard' isAuth={isAuth} component={Dashboard} />
+        <Route exact path="/" component={Home} />
+        <Route path="/super-market" component={Supermarket} />
+        <Route path="/login" component={Login} />
+        <PrivateRoute path="/dashboard" isAuth={isAuth} component={Dashboard} />
         <Route component={NotFound} />
       </Switch>
     );

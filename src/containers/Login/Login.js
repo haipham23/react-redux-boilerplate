@@ -24,7 +24,7 @@ class Login extends Component {
     } = this.props.auth;
 
     if (isAuth) {
-      return <Redirect to='/dashboard' push />;
+      return <Redirect to="/dashboard" push />;
     }
 
     return (
@@ -32,18 +32,22 @@ class Login extends Component {
         <div className="row">
           <div className="col-xs-12 col-md-6 offset-md-3">
             <div className="form-group">
-              <label>
+              <label htmlFor="email">
                 Email address
               </label>
               <input
+                name="email"
                 type="email"
                 className="form-control"
                 placeholder="Enter email"
               />
             </div>
             <div className="form-group">
-              <label>Password</label>
+              <label htmlFor="password">
+                Password
+              </label>
               <input
+                name="password"
                 type="password"
                 className="form-control"
                 placeholder="Password"

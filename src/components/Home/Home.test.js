@@ -1,9 +1,8 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import { expect } from 'chai';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
-import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import Home from './Home';
