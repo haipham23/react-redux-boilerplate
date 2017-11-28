@@ -6,6 +6,7 @@ import { withRouter } from 'react-router';
 
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import NotFound from '../NotFound/NotFound';
+import Footer from '../Footer/Footer';
 
 import Dashboard from '../Dashboard/Dashboard';
 
@@ -18,13 +19,16 @@ class Router extends PureComponent {
     const { isAuth } = this.props;
 
     return (
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/super-market" component={Supermarket} />
-        <Route path="/login" component={Login} />
-        <PrivateRoute path="/dashboard" isAuth={isAuth} component={Dashboard} />
-        <Route component={NotFound} />
-      </Switch>
+      <div>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/super-market" component={Supermarket} />
+          <Route path="/login" component={Login} />
+          <PrivateRoute path="/dashboard" isAuth={isAuth} component={Dashboard} />
+          <Route component={NotFound} />
+        </Switch>
+        <Footer />
+      </div>
     );
   }
 }

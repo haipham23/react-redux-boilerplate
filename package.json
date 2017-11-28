@@ -42,7 +42,7 @@
     "heroku-postbuild": "npm run build",
     "build": "npm run build-css && react-scripts build",
     "build-css": "node-sass-chokidar src/scss/index.scss -o src/css/",
-    "watch-css": "npm run build-css --watch",
+    "watch-css": "node-sass-chokidar src/scss/ -o src/css/ --watch --recursive",
     "lint": "eslint ./src/**/*.js",
     "test": "cross-env NODE_ENV=test CI=true react-scripts test --env=jsdom",
     "cover": "npm test -- --coverage",
