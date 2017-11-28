@@ -1,9 +1,8 @@
+import axios from 'axios';
 import { setTranslations } from 'redux-i18n';
 
 const syncContent = (store) => {
   // @TODO: do something to retrieve content
-
-  // example how to update content
   const translation = {
     en: {
       header: 'React Redux boilerplate',
@@ -19,20 +18,21 @@ const syncContent = (store) => {
     },
     vi: {
       header: 'React Redux boilerplate',
-      check_it_out: 'Xem them chi tiet tai',
+      check_it_out: 'Xem thêm chi tiết tại',
       github: 'Github',
-      multi_lang_example: 'Vi du ve da ngon ngu:',
-      check_out_example: 'Xem them cac vi du khac ben duoi:',
-      toggle_language: 'Thay doi ngon ngu',
-      calculation: 'Tinh toan',
-      auth: 'Chung thuc',
+      multi_lang_example: 'Ví dụ về đa ngôn ngữ:',
+      check_out_example: 'Xem thêm các ví dụ khác bên dưới:',
+      toggle_language: 'Thay đổi ngôn ngữ',
+      calculation: 'Tính toán',
+      auth: 'Chứng thực',
       english: 'English',
-      vietnamese: 'Tieng Viet'
+      vietnamese: 'Tiếng Việt'
     }
   };
 
-  setTimeout(() =>
-    store.dispatch(setTranslations(translation)), 1000);
+  return axios
+    .get('https://jsonplaceholder.typicode.com/posts')
+    .then(() => store.dispatch(setTranslations(translation)));
 };
 
 export default syncContent;
