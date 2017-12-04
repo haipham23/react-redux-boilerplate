@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
 
-import * as P from './LoginProps';
-import withConnect from '../../hoc/withConnect';
+import Props from './LoginProps';
 
 class Login extends Component {
   render() {
@@ -56,6 +57,11 @@ class Login extends Component {
   }
 }
 
-Login.propTypes = P.propTypes;
+Login.propTypes = Props.propTypes;
 
-export default withConnect(Login, P);
+export default compose(
+  connect(
+    Props.mapStateToProps,
+    Props.mapDispatchToProps
+  )
+)(Login);

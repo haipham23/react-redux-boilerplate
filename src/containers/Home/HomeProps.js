@@ -3,26 +3,20 @@ import { bindActionCreators } from 'redux';
 
 import { setLanguage } from 'redux-i18n';
 
-const propTypes = {
-  lang: Proptypes.string.isRequired,
-  rSetLanguage: Proptypes.func.isRequired
+const Props = {
+  propTypes: {
+    lang: Proptypes.string.isRequired,
+    rSetLanguage: Proptypes.func.isRequired
+  },
+  contextTypes: {
+    t: Proptypes.func
+  },
+  mapStateToProps: state => ({
+    lang: state.i18nState.lang
+  }),
+  mapDispatchToProps: dispatch => ({
+    rSetLanguage: bindActionCreators(setLanguage, dispatch)
+  })
 };
 
-const contextTypes = {
-  t: Proptypes.func
-};
-
-const mapStateToProps = state => ({
-  lang: state.i18nState.lang
-});
-
-const mapDispatchToProps = dispatch => ({
-  rSetLanguage: bindActionCreators(setLanguage, dispatch)
-});
-
-export {
-  propTypes,
-  contextTypes,
-  mapStateToProps,
-  mapDispatchToProps
-};
+export default Props;

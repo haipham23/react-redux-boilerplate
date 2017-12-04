@@ -1,21 +1,19 @@
-import Proptypes from 'prop-types';
-
-const {
+import {
   shape,
   array,
   string,
   func
-} = Proptypes;
+} from 'prop-types';
 
-const propTypes = {
-  product: shape({
-    selected: array,
-    displayed: array,
-    total: string
-  }).isRequired,
-  onReset: func.isRequired
+const Props = {
+  propTypes: {
+    product: shape({
+      selected: array,
+      displayed: array,
+      total: string
+    }).isRequired,
+    onReset: func.isRequired
+  }
 };
 
-export {
-  propTypes
-};
+export default Props;

@@ -1,34 +1,28 @@
-import Proptypes from 'prop-types';
 import { bindActionCreators } from 'redux';
-
-import { login } from '../../actions/authActions';
-
-const {
+import {
   string,
   bool,
   shape,
   func
-} = Proptypes;
+} from 'prop-types';
 
-const propTypes = {
-  auth: shape({
-    isLoading: bool.isRequired,
-    isAuth: bool.isRequired,
-    token: string
-  }).isRequired,
-  rLogin: func.isRequired
+import { login } from '../../actions/authActions';
+
+const Props = {
+  propTypes: {
+    auth: shape({
+      isLoading: bool.isRequired,
+      isAuth: bool.isRequired,
+      token: string
+    }).isRequired,
+    rLogin: func.isRequired
+  },
+  mapStateToProps: state => ({
+    auth: state.auth
+  }),
+  mapDispatchToProps: dispatch => ({
+    rLogin: bindActionCreators(login, dispatch)
+  })
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth
-});
-
-const mapDispatchToProps = dispatch => ({
-  rLogin: bindActionCreators(login, dispatch)
-});
-
-export {
-  propTypes,
-  mapStateToProps,
-  mapDispatchToProps
-};
+export default Props;

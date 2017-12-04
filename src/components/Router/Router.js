@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Proptypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { compose } from 'recompose';
 
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import NotFound from '../NotFound/NotFound';
@@ -41,4 +42,7 @@ const mapStateToProps = state => ({
   isAuth: state.auth.isAuth
 });
 
-export default withRouter(connect(mapStateToProps)(Router));
+export default compose(
+  withRouter,
+  connect(mapStateToProps)
+)(Router);

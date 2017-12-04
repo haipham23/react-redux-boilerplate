@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
-import * as P from './SelectedProductsProps';
+import Props from './SelectedProductsProps';
 
 import notDiscountedProduct from '../../services/notDiscountedProduct';
 
@@ -59,6 +59,6 @@ class SelectedProducts extends PureComponent {
   }
 }
 
-SelectedProducts.propTypes = P.propTypes;
+SelectedProducts.propTypes = Props.propTypes;
 
 export default SelectedProducts;

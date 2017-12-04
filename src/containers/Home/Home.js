@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
 
-import * as P from './HomeProps';
-import withConnect from '../../hoc/withConnect';
+import Props from './HomeProps';
 
 const tags = [
   'React',
@@ -95,7 +96,12 @@ class Home extends Component {
   }
 }
 
-Home.propTypes = P.propTypes;
-Home.contextTypes = P.contextTypes;
+Home.propTypes = Props.propTypes;
+Home.contextTypes = Props.contextTypes;
 
-export default withConnect(Home, P);
+export default compose(
+  connect(
+    Props.mapStateToProps,
+    Props.mapDispatchToProps
+  )
+)(Home);

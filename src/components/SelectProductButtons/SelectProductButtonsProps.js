@@ -1,20 +1,19 @@
-import Proptypes from 'prop-types';
-
-const {
+import {
   arrayOf,
   shape,
-  string
-} = Proptypes;
+  string,
+  func
+} from 'prop-types';
 
-const propTypes = {
-  productList: arrayOf(shape({
-    id: string.isRequired,
-    name: string.isRequired,
-    price: string.isRequired
-  })).isRequired,
-  onSelect: Proptypes.func.isRequired
+const Props = {
+  propTypes: {
+    productList: arrayOf(shape({
+      id: string.isRequired,
+      name: string.isRequired,
+      price: string.isRequired
+    })).isRequired,
+    onSelect: func.isRequired
+  }
 };
 
-export {
-  propTypes
-};
+export default Props;

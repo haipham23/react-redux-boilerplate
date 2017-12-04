@@ -1,63 +1,35 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { compose, withHandlers } from 'recompose';
 
 import SelectProductButtons from '../../components/SelectProductButtons/SelectProductButtons';
 import SelectedProducts from '../../components/SelectedProducts/SelectedProducts';
 
-import * as P from './SupermarketProps';
-import withConnect from '../../hoc/withConnect';
+import Props from './SupermarketProps';
 
 class Supermarket extends Component {
-  constructor(props) {
-    super(props);
-
-    this.onSelect = this.onSelect.bind(this);
-    this.onReset = this.onReset.bind(this);
-  }
-
-  onSelect(e) {
-    e.preventDefault();
-
-    const {
-      product,
-      productList,
-      discounts,
-      rSelectProduct
-    } = this.props;
-
-    // apply discount
-    rSelectProduct(
-      e,
-      product,
-      productList,
-      discounts,
-    );
-  }
-
-  onReset() {
-    this.props.rResetProduct();
-  }
-
   render() {
-    const {
-      productList,
-      product
-    } = this.props;
-
     return (
       <div className="container tm">
         <SelectProductButtons
-          productList={productList}
-          onSelect={this.onSelect}
+          productList={this.props.productList}
+          onSelect={this.props.onSelect}
         />
         <SelectedProducts
-          product={product}
-          onReset={this.onReset}
+          product={this.props.product}
+          onReset={this.props.rResetProduct}
         />
       </div>
     );
   }
 }
 
-Supermarket.propTypes = P.propTypes;
+Supermarket.propTypes = Props.propTypes;
 
-export default withConnect(Supermarket, P);
+export default compose(
+  connect(
+    Props.mapStateToProps,
+    Props.mapDispatchToProps
+  ),
+  withHandlers(Props.handlers),
+)(Supermarket);
