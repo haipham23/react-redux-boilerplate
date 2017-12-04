@@ -9,12 +9,9 @@ import {
   func
 } from 'prop-types';
 
-import {
-  selectProduct,
-  resetProduct
-} from '../../actions/productActions';
+import * as actions from '../../actions/productActions';
 
-const Props = {
+export default {
   propTypes: {
     productList: arrayOf(shape({
       id: string.isRequired,
@@ -32,7 +29,8 @@ const Props = {
       displayed: array,
       total: string
     }).isRequired,
-    rSelectProduct: func.isRequired
+    selectProduct: func.isRequired,
+    resetProduct: func.isRequired
   },
 
   handlers: {
@@ -43,11 +41,11 @@ const Props = {
         product,
         productList,
         discounts,
-        rSelectProduct
+        selectProduct
       } = props;
 
       // apply discount
-      rSelectProduct(
+      selectProduct(
         event,
         product,
         productList,
@@ -63,9 +61,7 @@ const Props = {
   }),
 
   mapDispatchToProps: dispatch => ({
-    rSelectProduct: bindActionCreators(selectProduct, dispatch),
-    rResetProduct: bindActionCreators(resetProduct, dispatch)
+    selectProduct: bindActionCreators(actions.selectProduct, dispatch),
+    resetProduct: bindActionCreators(actions.resetProduct, dispatch)
   })
 };
-
-export default Props;

@@ -5,7 +5,7 @@ import {
   func
 } from 'prop-types';
 
-const Props = {
+export default {
   propTypes: {
     productList: arrayOf(shape({
       id: string.isRequired,
@@ -15,5 +15,3 @@ const Props = {
     onSelect: func.isRequired
   }
 };
-
-export default Props;

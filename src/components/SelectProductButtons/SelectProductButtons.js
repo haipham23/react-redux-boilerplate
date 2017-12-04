@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-import Props from './SelectProductButtonsProps';
+import Model from './SelectProductButtonsModel';
 
 class SelectProductButtons extends PureComponent {
   render() {
@@ -26,6 +26,6 @@ class SelectProductButtons extends PureComponent {
   }
 }
 
-SelectProductButtons.propTypes = Props.propTypes;
+SelectProductButtons.propTypes = Model.propTypes;
 
 export default SelectProductButtons;

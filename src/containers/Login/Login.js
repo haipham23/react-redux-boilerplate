@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
-import Props from './LoginProps';
+import Model from './LoginModel';
 
 class Login extends Component {
   render() {
@@ -45,7 +45,7 @@ class Login extends Component {
             <button
               type="submit"
               className="btn btn-primary btn-block"
-              onClick={this.props.rLogin}
+              onClick={this.props.login}
               disabled={isLoading}
             >
               Submit
@@ -57,11 +57,11 @@ class Login extends Component {
   }
 }
 
-Login.propTypes = Props.propTypes;
+Login.propTypes = Model.propTypes;
 
 export default compose(
   connect(
-    Props.mapStateToProps,
-    Props.mapDispatchToProps
+    Model.mapStateToProps,
+    Model.mapDispatchToProps
   )
 )(Login);

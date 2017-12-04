@@ -5,7 +5,7 @@ import {
   func
 } from 'prop-types';
 
-const Props = {
+export default {
   propTypes: {
     product: shape({
       selected: array,
@@ -15,5 +15,3 @@ const Props = {
     onReset: func.isRequired
   }
 };
-
-export default Props;

@@ -5,7 +5,7 @@ import { compose, withHandlers } from 'recompose';
 import SelectProductButtons from '../../components/SelectProductButtons/SelectProductButtons';
 import SelectedProducts from '../../components/SelectedProducts/SelectedProducts';
 
-import Props from './SupermarketProps';
+import Model from './SupermarketModel';
 
 class Supermarket extends Component {
   render() {
@@ -17,19 +17,19 @@ class Supermarket extends Component {
         />
         <SelectedProducts
           product={this.props.product}
-          onReset={this.props.rResetProduct}
+          onReset={this.props.resetProduct}
         />
       </div>
     );
   }
 }
 
-Supermarket.propTypes = Props.propTypes;
+Supermarket.propTypes = Model.propTypes;
 
 export default compose(
   connect(
-    Props.mapStateToProps,
-    Props.mapDispatchToProps
+    Model.mapStateToProps,
+    Model.mapDispatchToProps
   ),
-  withHandlers(Props.handlers),
+  withHandlers(Model.handlers),
 )(Supermarket);

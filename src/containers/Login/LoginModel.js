@@ -6,23 +6,21 @@ import {
   func
 } from 'prop-types';
 
-import { login } from '../../actions/authActions';
+import * as actions from '../../actions/authActions';
 
-const Props = {
+export default {
   propTypes: {
     auth: shape({
       isLoading: bool.isRequired,
       isAuth: bool.isRequired,
       token: string
     }).isRequired,
-    rLogin: func.isRequired
+    login: func.isRequired
   },
   mapStateToProps: state => ({
     auth: state.auth
   }),
   mapDispatchToProps: dispatch => ({
-    rLogin: bindActionCreators(login, dispatch)
+    login: bindActionCreators(actions.login, dispatch)
   })
 };
-
-export default Props;

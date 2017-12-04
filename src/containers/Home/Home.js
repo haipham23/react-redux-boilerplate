@@ -4,24 +4,23 @@ import classNames from 'classnames';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
-import Props from './HomeProps';
-
-const tags = [
-  'React',
-  'Redux',
-  'React Router',
-  'redux-i18n',
-  'Docker',
-  'Travis CI'
-];
+import Model from './HomeModel';
+import tags from '../../constants/tags';
 
 class Home extends Component {
   render() {
     const { t } = this.context;
-    const { lang, rSetLanguage } = this.props;
+    const { lang, setLanguage } = this.props;
 
-    const enBtnClass = classNames('btn', { 'btn-primary': lang === 'en', 'btn-outline-primary': lang !== 'en' });
-    const viBtnClass = classNames('btn', { 'btn-primary': lang === 'vi', 'btn-outline-primary': lang !== 'vi' });
+    const enBtnClass = classNames(
+      'btn',
+      { 'btn-primary': lang === 'en', 'btn-outline-primary': lang !== 'en' }
+    );
+
+    const viBtnClass = classNames(
+      'btn',
+      { 'btn-primary': lang === 'vi', 'btn-outline-primary': lang !== 'vi' }
+    );
 
     return (
       <div className="container home">
@@ -60,14 +59,14 @@ class Home extends Component {
             <button
               type="button"
               className={enBtnClass}
-              onClick={() => rSetLanguage('en')}
+              onClick={() => setLanguage('en')}
             >
               {t('english')}
             </button>
             <button
               type="button"
               className={viBtnClass}
-              onClick={() => rSetLanguage('vi')}
+              onClick={() => setLanguage('vi')}
             >
               {t('vietnamese')}
             </button>
@@ -96,12 +95,12 @@ class Home extends Component {
   }
 }
 
-Home.propTypes = Props.propTypes;
-Home.contextTypes = Props.contextTypes;
+Home.propTypes = Model.propTypes;
+Home.contextTypes = Model.contextTypes;
 
 export default compose(
   connect(
-    Props.mapStateToProps,
-    Props.mapDispatchToProps
+    Model.mapStateToProps,
+    Model.mapDispatchToProps
   )
 )(Home);
