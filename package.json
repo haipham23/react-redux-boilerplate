@@ -1,6 +1,6 @@
 {
   "name": "react-redux-boilerplate",
-  "version": "1.6.2",
+  "version": "1.7.0",
   "private": true,
   "engines": {
     "node": "~7",
