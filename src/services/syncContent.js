@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { setTranslations } from 'redux-i18n';
 
+import config from '../config/index';
+
 const syncContent = (store) => {
   // @TODO: do something to retrieve content
   const translation = {
@@ -31,7 +33,7 @@ const syncContent = (store) => {
   };
 
   return axios
-    .get('https://jsonplaceholder.typicode.com/posts')
+    .get(config.contentUrl)
     .then(() => store.dispatch(setTranslations(translation)));
 };
 

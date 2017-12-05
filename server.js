@@ -10,7 +10,16 @@ const app = express();
 
 app.use(helmet());
 app.use(compression());
-app.use(sslRedirect());
-app.use(express.static(path.join(__dirname, 'build')));
+
+// force ssl on heroku
+if (getenv('IS_HEROKU', false)) {
+  app.use(sslRedirect());
+}
+
+const build = getenv('NODE_ENV') === 'production'
+  ? 'build-prod'
+  : 'build-dev';
+
+app.use(express.static(path.join(__dirname, build)));
 
 app.listen(port);
