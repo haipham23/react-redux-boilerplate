@@ -12,11 +12,11 @@ app.use(helmet());
 app.use(compression());
 
 // force ssl on heroku
-if (getenv('IS_HEROKU', false)) {
+if (process.env.IS_HEROKU) {
   app.use(sslRedirect());
 }
 
-const build = getenv('NODE_ENV') === 'production'
+const build = process.env.NODE_ENV === 'production'
   ? 'build-prod'
   : 'build-dev';
 
