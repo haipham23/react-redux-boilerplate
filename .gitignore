@@ -6,3 +6,4 @@ build
 build-dev
 build-prod
 .env
+package-lock.json
